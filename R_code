@@ -1,0 +1,63 @@
+library(readr)
+MIS_470_Module_8_housing_testing <- read_csv("Documents/Masters Data Analytics/MIS470/Module 7 & 8/MIS 470 Module 8 housing testing.csv")
+View(MIS_470_Module_8_housing_testing)
+library(readr)
+MIS_470_Module_8_housing_training <- read_csv("Documents/Masters Data Analytics/MIS470/Module 7 & 8/MIS 470 Module 8 housing training.csv")
+View(MIS_470_Module_8_housing_training)
+library(readr)
+housing_testing <- read_csv("Documents/Masters Data Analytics/MIS470/Module 7 & 8/housing_testing.csv")
+View(housing_testing)
+library(readr)
+housing_training <- read_csv("Documents/Masters Data Analytics/MIS470/Module 7 & 8/housing_training.csv")
+View(housing_training)
+complete<-housing_training[complete.cases(housing_training), ]
+complete
+20complete<-housing_training[complete.cases(housing_training),20]
+twentycomplete<-housing_training[complete.cases(housing_training),20]
+twentycomplete
+firsttwenty<-head(complete,20)
+firsttwenty
+complete<-housing_training[complete.cases(housing_training), ]
+firsttwenty<-head(complete,20)
+firsttwenty
+housingframe<-data.frame(housing_training)
+plot(housingframe)
+housingframe
+complete<-housing_training[complete.cases(housing_training), ]
+firsttwenty<-head(complete,20)
+firsttwenty
+?predict
+predict(firsttwenty$SalePrice)
+ModOverallQual<-lm(housing_training$SalePrice~housing_training$OverallQual)
+predict(ModOverallQual,firsttwenty)
+Mod<-lm(firsttwenty$SalePrice~firsttwenty$OverallQual)
+predict(Mod,firsttwenty)
+PredictedMod<-predict(Mod,firsttwenty)
+HGA<-hist(firsttwenty$SalePrice,breaks=ax,plot=FALSE)
+HGA<-hist(firsttwenty$SalePrice)
+HGB<-hist(PredictedMod)
+plot(HGA,col=c1)
+hist(PredictedMod,firsttwenty$SalePrice)
+Combine<-rbind(PredictedMod,firsttwenty$SalePrice)
+ggplot(Combine)
+hist(Combine)
+?ggplot
+Mod<-lm(firsttwenty$SalePrice~firsttwenty$OverallQual)
+predict(Mod,firsttwenty)
+PredictedMod<-predict(Mod,firsttwenty)
+Summary(PredictedMod)
+sd(PredictedMod)
+summary(firsttwenty)
+summary(PredictedMod)
+sd(PredictedMod)
+summary(firsttwenty$SalePrice)
+sd(firsttwenty$SalePrice)
+Mod<-lm(firsttwenty$SalePrice~firsttwenty$OverallQual)
+predict(Mod,firsttwenty)
+hist(firsttwenty$SalePrice)
+hist(PredictedMod)
+plot(firsttwenty$SalePrice,PredictedMod,xlab="Training Sale Price",ylab="Predicted Sale Price",main="Predicted vs Actual",pch=16,col="Red")
+PredictionComp<-lm(PredictedMod~firsttwenty$SalePrice)
+PredictionComp
+summary(PredictionComp)
+abline(PredictionComp)
